@@ -1,0 +1,13 @@
+.header-main {
+  background-color: $gray;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+    margin: 2rem;
+  }
+}
