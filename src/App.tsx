@@ -1,13 +1,16 @@
-
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import Menu from "./Pages/Menu";
+import Order from "./Pages/Order";
 
 function App() {
-  
-
   return (
-    <>
-      <h2>Frontend 2023 Pizza</h2>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Menu />} />
+        <Route path="/order" element={<Order />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
