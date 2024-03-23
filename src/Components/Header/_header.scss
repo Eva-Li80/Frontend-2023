@@ -1,5 +1,5 @@
 .header-main {
-  background-color: $gray;
+  background-color: $white;
   padding: 1rem;
 
   display: flex;
@@ -7,7 +7,11 @@
   align-items: center;
 
   h1 {
-    font-size: 3rem;
+    color: $pink;
+    font-size: 4rem;
+    font-weight: 900;
+
     margin: 2rem;
+    text-shadow: 5px 5px $green;
   }
 }
