@@ -1,6 +1,7 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Menu from "./Pages/Menu";
 import Order from "./Pages/Order";
+import PizzaMenu from "./PizzaMenu";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Route index element={<Menu />} />
         <Route path="/order" element={<Order />} />
       </Routes>
+      <PizzaMenu />
     </BrowserRouter>
   );
 }
