@@ -1,7 +1,7 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Menu from "./Pages/Menu";
 import Order from "./Pages/Order";
-import PizzaMenu from "./PizzaMenu";
+import PizzaMenu from "./Pages/PizzaMenu";
 
 function App() {
   return (

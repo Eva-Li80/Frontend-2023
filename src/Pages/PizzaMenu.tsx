@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import pizzaData from "./data.json";
+import { useState } from "react";
+import pizzaData from "../data.json";
 import SortMenu from "./SortMenu";
 
 export type Pizza = {
