@@ -2,10 +2,18 @@ import { useContext } from "react"
 import { PizzaContext } from "../../context/PizzaContextProvider"
 
 const ShoppingCartButton = () => {
-  const pizzas = useContext(PizzaContext)
+  const { state } = useContext(PizzaContext)
+
+  const getNumberOfItemsOrdered = () => {
+    let sum = 0
+    state.cart.forEach((item) => {
+      sum += item.quantity
+    })
+    return sum
+  }
   return (
     <div className="shopping-cart-button">
-      <p>{pizzas.state.cart.length}</p>
+      <p>{getNumberOfItemsOrdered()}</p>
       <p>🛒</p>
     </div>
   )
