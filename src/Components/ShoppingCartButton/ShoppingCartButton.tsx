@@ -1,7 +1,11 @@
+import { useContext } from "react"
+import { PizzaContext } from "../../context/PizzaContextProvider"
+
 const ShoppingCartButton = () => {
+  const pizzas = useContext(PizzaContext)
   return (
     <div className="shopping-cart-button">
-      <p>2</p>
+      <p>{pizzas.state.cart.length}</p>
       <p>🛒</p>
     </div>
   )
