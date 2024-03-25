@@ -11,7 +11,7 @@ const PizzaOrderContainer = () => {
       <PizzaOrderList/>
       <div className="btn-container">
         <Button className="btn"variant="contained">
-         <Link className="link" to="menu"> Lägg till mer ?</Link>
+         <Link className="link" to="/"> Lägg till mer ?</Link>
         </Button>
       <PizzaOrdered/>
       </div>
