@@ -3,10 +3,12 @@ import PizzaMenu from "../Components/PizzaMenu";
 
 const Menu = () => {
   return (
-    <div>
-      <h2>Menu</h2>
-      <PizzaMenu />
-    </div>
+    <>
+      <main>
+        <h2>Menu</h2>
+        <PizzaMenu />
+      </main>
+    </>
   );
 };
 
