@@ -1,4 +1,16 @@
 .sort-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40vw;
+  padding: 1em;
+  background-color: #f8c3f7;
+
+  div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   img {
     width: 100px;
     height: 100px;
