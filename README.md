@@ -1,3 +1,24 @@
+# Frontend 2023
+
+## Kriterier
+### [] Er grupp har ett publikt repo och publikt designdokument
+### [] Ni har byggt en fungerande app där man kan göra val och få ut en kostnad för det man beställer
+### [] Användaren ska kunna beställa flera olika pizz
+### [] Man ska kunna lägga till pizzor, ta bort och redigera pizzorna i sin beställning
+### [] Det finns ett antal alternativ man kan variera på respektive pizza (bestäm själva ifall detta innebär olika toppings, storlekar, ostsorter, degsort mm)
+### [] Ni använder Sass, React, Vite och Typescript. 
+### [] Ni skapar avgränsade väl designade komponenter. Vissa kommer att vara “generiska” komponenter där ni använder korrekta universella namn. Vissa komponenter kommer att vara specifika för er app.
+### [] Ni använder Prettier och korrekt namnstandard enl React och JS/TS
+### [] Strikt typad TS
+### [] Ni har en global state med beställningen byggd med useReducer och useContext
+
+
+## För att starta Projeketet:
+
+
+## Av: Lars, Johan.K, Isabella, Nathalie & Eva-Li
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
