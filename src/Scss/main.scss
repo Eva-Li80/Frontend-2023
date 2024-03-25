@@ -2,6 +2,11 @@
 @import "./Variables/fonts";
 @import "./Variables/margin-padding";
 @import "./Base/base";
+
+
+//components
 @import "./../Components/Loggo/loggo";
 @import "./../Components/Header/header";
+@import "./../Components/PizzaOrder/pizzaOrder"
+
 @import "./../Components/ShoppingCartButton/shoppincartbutton.scss";
