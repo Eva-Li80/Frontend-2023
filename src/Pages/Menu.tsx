@@ -1,9 +1,14 @@
-import { useContext } from "react";
-import { PizzaContext } from "../context/PizzaContextProvider";
-import { CartItem, Pizza } from "../Type";
-import uuid from "react-uuid";
-
 const Menu = () => {
+  return (
+    <div>
+      <h2>Menu</h2>
+    </div>
+  );
+};
+
+export default Menu;
+
+/* 
   const { state, dispatch } = useContext(PizzaContext);
 
   console.log(state);
@@ -30,11 +35,8 @@ const Menu = () => {
       payload: { ...cartItem, quantity: 5 },
     });
   }
-  return (
-    <div>
-      <h2>Menu</h2>
 
-      {/* LITE TESTKOD SÅ NI SER ATT DET FUNKAR */}
+LITE TESTKOD SÅ NI SER ATT DET FUNKAR
       {state.pizza.map((p) => (
         <div key={p.id}>
           <p>{p.name}</p>
@@ -50,9 +52,4 @@ const Menu = () => {
           <button onClick={() => handleEdit(c)}>Update quantity</button>
           <button onClick={() => handleDelete(c.id)}>DELETE</button>
         </div>
-      ))}
-    </div>
-  );
-};
-
-export default Menu;
+      ))} */

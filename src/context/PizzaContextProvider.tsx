@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useReducer } from "react";
 import { CartItem, Pizza } from "../Type";
-import uuid from "react-uuid";
+import { pizzas } from "../Type";
 
 type PizzaContextProviderType = {
   children: ReactNode;
@@ -54,24 +54,7 @@ const reducer = (state: State, action: Action) => {
 };
 
 const initalPizzaState: State = {
-  pizza: [
-    {
-      id: uuid(),
-      type: "pizza",
-      name: "Hawai",
-      size: "standard",
-      ingredients: ["ananas", "skinka"],
-      price: 100,
-    },
-    {
-      id: uuid(),
-      type: "pizza",
-      name: "Hawai",
-      size: "standard",
-      ingredients: ["ananas", "skinka"],
-      price: 100,
-    },
-  ],
+  pizza: pizzas,
   cart: [],
 };
 
