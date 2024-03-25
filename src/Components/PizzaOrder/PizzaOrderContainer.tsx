@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import PizzaOrderList from "./PizzaOrderList";
+import PizzaOrdered from "./PizzaOrdered";
+import { Link } from "react-router-dom";
 
 
 const PizzaOrderContainer = () => {
@@ -9,13 +11,9 @@ const PizzaOrderContainer = () => {
       <PizzaOrderList/>
       <div className="btn-container">
         <Button className="btn"variant="contained">
-          Lägg till mer ?
+         <Link className="link" to="menu"> Lägg till mer ?</Link>
         </Button>
-        <Button className="btn"
-          variant="contained"
-        >
-          Beställ
-        </Button>
+      <PizzaOrdered/>
       </div>
     </div>
   );
