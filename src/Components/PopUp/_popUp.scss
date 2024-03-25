@@ -1,0 +1,21 @@
+@import "../../Scss/Variables/fonts";
+
+.popUpContainer{
+    border: solid black 2px;
+    height: auto;
+    width: 30rem;
+    margin-left: 10rem;
+    padding: 2rem;
+    font-family: $primary-font-family;
+
+
+    .pizzaSizeDiv{
+        border: solid black 2px;
+        height: auto;
+    }
+
+    .extraIngdDiv{
+        border: solid black 2px;
+        height: auto;
+    }
+}
