@@ -25,15 +25,21 @@ const PizzaMenu: React.FC = () => {
         type="text"
         value={searchTerm}
         onChange={handleSearchChange}
-        placeholder="Sök Pizza"
+        placeholder="Sök Pizza..."
+        className="search"
       />
       {pizzas.map((pizza) => (
-        <div key={pizza.id}>
-          <h3>{pizza.name}</h3>
-          <p>{pizza.ingredients.join(", ")}</p>
-          <p>{pizza.price} kr</p>
-          <Button variant="contained">Välj</Button>
-          <br />
+        <div key={pizza.id} className="menu-item">
+          <div>
+            <h3>{pizza.name}</h3>
+            <p>{pizza.ingredients.join(", ")}</p>
+          </div>
+          <div>
+            <p>{pizza.price} kr</p>
+            <Button color="success" variant="contained">
+              Välj
+            </Button>
+          </div>
         </div>
       ))}
     </div>

@@ -1,4 +1,18 @@
 .sort-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40vw;
+  padding: 1em;
+  background-color: #ffd5f0;
+  border-top: 2px solid $pink;
+  border-bottom: 2px solid $pink;
+
+  div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
   img {
     width: 100px;
     height: 100px;
