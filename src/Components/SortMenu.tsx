@@ -31,18 +31,30 @@ const SortMenu: React.FC<SortMenuProps> = ({ allPizzas, setPizzas }) => {
 
   return (
     <div className="sort-menu">
-      <button onClick={() => handleSort("all")} className="all">
-        Alla
-      </button>
-      <button onClick={() => handleSort("standard")} className="standard">
-        Standard
-      </button>
-      <button onClick={() => handleSort("vego")} className="vego">
-        Vego
-      </button>
-      <button onClick={() => handleSort("sallad")} className="sallad">
-        Sallad
-      </button>
+      <img
+        src="./path/to/alla-image.jpg"
+        alt="Alla"
+        onClick={() => handleSort("all")}
+        className="sort-image all"
+      />
+      <img
+        src="/path/to/standard-image.jpg"
+        alt="Standard"
+        onClick={() => handleSort("standard")}
+        className="sort-image standard"
+      />
+      <img
+        src="/path/to/vego-image.jpg"
+        alt="Vego"
+        onClick={() => handleSort("vego")}
+        className="sort-image vego"
+      />
+      <img
+        src="/path/to/sallad-image.jpg"
+        alt="Sallad"
+        onClick={() => handleSort("sallad")}
+        className="sort-image sallad"
+      />
     </div>
   );
 };
