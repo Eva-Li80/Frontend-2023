@@ -1,6 +1,7 @@
 @import "./Variables/colors";
+@import "./Variables/fonts";
+@import "./Variables/margin-padding";
 @import "./Base/base";
 @import "./../Components/Loggo/loggo";
 @import "./../Components/Header/header";
-@import "./../Components/Menu/menu";
-@import "./../Components/SortMenu/sortMenu";
+@import "./../Components/ShoppingCartButton/shoppincartbutton.scss";
