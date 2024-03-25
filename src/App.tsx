@@ -10,7 +10,6 @@ function App() {
         <Route index element={<Menu />} />
         <Route path="/order" element={<Order />} />
       </Routes>
-      <PizzaMenu />
     </BrowserRouter>
   );
 }

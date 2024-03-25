@@ -1,6 +1,7 @@
 import { useState } from "react";
-import pizzaData from "../data.json";
+import pizzaData from "../Assets/data.json";
 import SortMenu from "./SortMenu";
+import { Button } from "@mui/material";
 
 export type Pizza = {
   id: string;
@@ -29,7 +30,7 @@ const PizzaMenu = () => {
           <h3>{pizza.name}</h3>
           <p>{pizza.ingredients.join(", ")}</p>
           <p>{pizza.price} kr</p>
-          <button>Välj</button>
+          <Button variant="contained">Välj</Button>
           <br />
         </div>
       ))}
