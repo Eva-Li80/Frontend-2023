@@ -1,5 +1,5 @@
 import React from "react";
-import PizzaMenu from "../Components/PizzaMenu";
+import PizzaMenu from "../Components/Menu/PizzaMenu";
 
 const Menu = () => {
   return (

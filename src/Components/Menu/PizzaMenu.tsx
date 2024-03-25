@@ -1,6 +1,6 @@
 import { useState } from "react";
-import pizzaData from "../Assets/data.json";
-import SortMenu from "./SortMenu";
+import pizzaData from "../../Assets/data.json";
+import SortMenu from "../SortMenu/SortMenu";
 import { Button } from "@mui/material";
 
 export type Pizza = {

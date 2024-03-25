@@ -1,5 +1,9 @@
 import React from "react";
-import { Pizza } from "./PizzaMenu";
+import { Pizza } from "../Menu/PizzaMenu";
+import AllaImage from "../../Assets/img/unleashed-agency-EZpGDYWBAYA-unsplash.jpg";
+import StandardImage from "../../Assets/img/vit-ch-Oxb84ENcFfU-unsplash.jpg";
+import VegoImage from "../../Assets/img/likemeat-CbNAuxSZTFo-unsplash.jpg";
+import SalladImage from "../../Assets/img/jenny-theolin-Abodxj2grwY-unsplash.jpg";
 
 type SortMenuProps = {
   allPizzas: Pizza[];
@@ -32,25 +36,25 @@ const SortMenu: React.FC<SortMenuProps> = ({ allPizzas, setPizzas }) => {
   return (
     <div className="sort-menu">
       <img
-        src="./path/to/alla-image.jpg"
+        src={AllaImage}
         alt="Alla"
         onClick={() => handleSort("all")}
         className="sort-image all"
       />
       <img
-        src="/path/to/standard-image.jpg"
+        src={StandardImage}
         alt="Standard"
         onClick={() => handleSort("standard")}
         className="sort-image standard"
       />
       <img
-        src="/path/to/vego-image.jpg"
+        src={VegoImage}
         alt="Vego"
         onClick={() => handleSort("vego")}
         className="sort-image vego"
       />
       <img
-        src="/path/to/sallad-image.jpg"
+        src={SalladImage}
         alt="Sallad"
         onClick={() => handleSort("sallad")}
         className="sort-image sallad"
