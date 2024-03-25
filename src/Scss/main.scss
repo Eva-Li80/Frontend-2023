@@ -1,4 +1,10 @@
 @import "./Variables/colors";
+@import "./Functions/mixins";
 @import "./Base/base";
+
+
+//components
 @import "./../Components/Loggo/loggo";
 @import "./../Components/Header/header";
+@import "./../Components/PizzaOrder/pizzaOrder"
+
