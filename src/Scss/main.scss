@@ -1,1 +1,6 @@
-@import "./Variables/colors"
+@import "./Functions/mixins";
+@import "./Variables/colors";
+@import "./Variables/fonts";
+@import "./Variables/margin-padding";
+
+@import "../Pages/order-style";
