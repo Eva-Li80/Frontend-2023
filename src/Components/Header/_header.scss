@@ -1,0 +1,17 @@
+.header-main {
+  background-color: $white;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  h1 {
+    color: $pink;
+    font-size: 4rem;
+    font-weight: 900;
+
+    margin: 2rem;
+    text-shadow: 5px 5px $green;
+  }
+}

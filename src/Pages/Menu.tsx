@@ -1,11 +1,10 @@
-import React from 'react'
-
 const Menu = () => {
   return (
-    <div>
+    <>
+      <main>
         <h2>Menu</h2>
-      
-    </div>
+      </main>
+    </>
   )
 }
 
