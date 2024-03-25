@@ -7,7 +7,8 @@
   background-color: rgb(187, 241, 223);
 
   .pizza-menu {
-    border: 2px solid $pink;
+    border-left: 2px solid $pink;
+    border-right: 2px solid $pink;
     background-color: white;
     .search {
       margin: 1em;
