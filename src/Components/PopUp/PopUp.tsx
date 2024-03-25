@@ -1,23 +1,32 @@
 import "./_popUp.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
 import { Pizza } from "../../Type";
 import Button from "@mui/material/Button";
 
-const PopUp = ({ klickedPizza }: Pizza) => {
-  /* const { state, dispatch } = useContext(PizzaContext); */
+type PupUpProps = {
+  klickedPizza: Pizza;
+};
 
-  console.log("vad jag får från klickedPizza", klickedPizza);
+const PopUp = ({ klickedPizza }: PupUpProps) => {
+  const { state, dispatch } = useContext(PizzaContext);
+  const [size, setSize] = useState(klickedPizza.size);
+  const [extraIngr, setExtraIngr] = useState(klickedPizza.ingredients);
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Du klickade på", e.target.value);
+    setSize(e.target.value);
   };
 
   const handleChangeExtraIng = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("Du klickade på", e.target.value);
+    if (e.target.checked) {
+      setExtraIngr([...extraIngr, e.target.value]);
+    } else {
+      setExtraIngr(extraIngr.filter((i) => i !== e.target.value));
+    }
   };
-
-  return (
+  /*   console.log("extra ing", extraIngr);
+   */ return (
     <div className="popUpContainer">
       <h2>{klickedPizza.name}</h2>
       <ul className="ingredientList">
@@ -53,7 +62,7 @@ const PopUp = ({ klickedPizza }: Pizza) => {
 
       <div className="extraIngdDiv">
         <h5>Extra ingridienser</h5>
-        <form action="">
+        <div>
           <input
             id="tomat"
             type="checkbox"
@@ -125,9 +134,16 @@ const PopUp = ({ klickedPizza }: Pizza) => {
             onChange={handleChangeExtraIng}
           />
           <label htmlFor="feferoni">Feferoni</label>
-        </form>
+        </div>
       </div>
-      <Button variant="contained">Contained</Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          dispatch({ type: "AddCartItem" });
+        }}
+      >
+        Contained{" "}
+      </Button>
     </div>
   );
 };
