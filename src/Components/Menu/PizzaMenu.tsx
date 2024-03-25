@@ -1,30 +1,32 @@
-import { useState } from "react";
-import pizzaData from "../../Assets/data.json";
+import React, { useContext, useState } from "react";
+import { PizzaContext } from "../../context/PizzaContextProvider";
+import { Pizza } from "../../Type";
 import SortMenu from "../SortMenu/SortMenu";
 import { Button } from "@mui/material";
 
-export type Pizza = {
-  id: string;
-  type: string;
-  name: string;
-  ingredients: string[];
-  price: number;
-  size: string;
-};
+const PizzaMenu: React.FC = () => {
+  const { state } = useContext(PizzaContext);
+  const [pizzas, setPizzas] = useState<Pizza[]>(state.pizza);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
-const PizzaMenu = () => {
-  const allPizzas: Pizza[] = [
-    ...pizzaData.klassiska_pizzor,
-    ...pizzaData.vego_pizzor,
-    ...pizzaData.sallader,
-  ];
-
-  const [pizzas, setPizzas] = useState(allPizzas);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = event.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+    const filteredPizzas = state.pizza.filter((pizza) =>
+      pizza.name.toLowerCase().includes(searchTerm)
+    );
+    setPizzas(filteredPizzas);
+  };
 
   return (
     <div className="pizza-menu">
-      <SortMenu allPizzas={allPizzas} setPizzas={setPizzas} />
-      <input type="text" />
+      <SortMenu pizzas={state.pizza} setPizzas={setPizzas} />
+      <input
+        type="text"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        placeholder="Sök Pizza"
+      />
       {pizzas.map((pizza) => (
         <div key={pizza.id}>
           <h3>{pizza.name}</h3>

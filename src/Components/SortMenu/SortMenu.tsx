@@ -1,33 +1,34 @@
 import React from "react";
-import { Pizza } from "../Menu/PizzaMenu";
+import { Pizza } from "../../Type";
+
 import AllaImage from "../../Assets/img/unleashed-agency-EZpGDYWBAYA-unsplash.jpg";
 import StandardImage from "../../Assets/img/vit-ch-Oxb84ENcFfU-unsplash.jpg";
 import VegoImage from "../../Assets/img/likemeat-CbNAuxSZTFo-unsplash.jpg";
 import SalladImage from "../../Assets/img/jenny-theolin-Abodxj2grwY-unsplash.jpg";
 
 type SortMenuProps = {
-  allPizzas: Pizza[];
+  pizzas: Pizza[];
   setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>;
 };
 
-const SortMenu: React.FC<SortMenuProps> = ({ allPizzas, setPizzas }) => {
+const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
   const handleSort = (category: string) => {
     let sortedPizzas: Pizza[] = [];
     switch (category) {
       case "all":
-        sortedPizzas = allPizzas;
+        sortedPizzas = pizzas;
         break;
-      case "standard":
-        sortedPizzas = allPizzas.filter((pizza) => pizza.type === "pizza");
+      case "pizza":
+        sortedPizzas = pizzas.filter((pizza) => pizza.type === "pizza");
         break;
       case "vego":
-        sortedPizzas = allPizzas.filter((pizza) => pizza.type === "vego");
+        sortedPizzas = pizzas.filter((pizza) => pizza.type === "vego");
         break;
       case "sallad":
-        sortedPizzas = allPizzas.filter((pizza) => pizza.type === "sallad");
+        sortedPizzas = pizzas.filter((pizza) => pizza.type === "sallad");
         break;
       default:
-        sortedPizzas = allPizzas;
+        sortedPizzas = pizzas;
         break;
     }
     setPizzas(sortedPizzas);
@@ -44,7 +45,7 @@ const SortMenu: React.FC<SortMenuProps> = ({ allPizzas, setPizzas }) => {
       <img
         src={StandardImage}
         alt="Standard"
-        onClick={() => handleSort("standard")}
+        onClick={() => handleSort("pizza")}
         className="sort-image standard"
       />
       <img
