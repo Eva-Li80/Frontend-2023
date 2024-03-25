@@ -1,5 +1,6 @@
 @import "./Variables/colors";
-@import "./Functions/mixins";
+@import "./Variables/fonts";
+@import "./Variables/margin-padding";
 @import "./Base/base";
 
 
@@ -8,3 +9,4 @@
 @import "./../Components/Header/header";
 @import "./../Components/PizzaOrder/pizzaOrder"
 
+@import "./../Components/ShoppingCartButton/shoppincartbutton.scss";
