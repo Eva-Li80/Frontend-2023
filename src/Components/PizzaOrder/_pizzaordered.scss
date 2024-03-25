@@ -1,0 +1,17 @@
+.dialog{
+    border: 2px solid $green;
+    background-color: $black;
+    color: $white;
+    padding: 50px;
+  
+    .action-btn{
+        background-color: $pink;
+        color: $white;
+    }
+
+    .action-btn:hover{
+        background-color: $green;
+    }
+    
+  }
+  

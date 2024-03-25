@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import PopUp from "../Components/PopUp/PopUp";
-import { PizzaContext } from "../context/PizzaContextProvider";
+import React from "react";
+import PizzaMenu from "../Components/Menu/PizzaMenu";
 
 const Menu = () => {
   const { state, dispatch } = useContext(PizzaContext);
@@ -8,7 +7,6 @@ const Menu = () => {
   return (
     <div>
       <h2>Menu</h2>
-      <PopUp klickedPizza={state.pizza[0]} />
     </div>
   );
 };
