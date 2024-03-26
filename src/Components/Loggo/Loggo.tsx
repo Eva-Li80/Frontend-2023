@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom"
+
 const Loggo = () => {
   return (
-    <a href="./" className="loggo">
+    <Link className="loggo" to="/">
       <div>
         <p>Frontend</p>
         <p>Pizza</p>
       </div>
-    </a>
+    </Link>
   )
 }
 
