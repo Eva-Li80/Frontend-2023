@@ -1,33 +1,9 @@
 import { useContext } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
-import { CartItem, Pizza } from "../../Type";
-import uuid from "react-uuid";
+import { CartItem} from "../../Type";
 
 const PizzaOrderList = () => {
   const { state, dispatch } = useContext(PizzaContext);
-
-  const handleAddPizza = (pizza: Pizza) => {
-    const pizzaz = state.cart.find((c) => c.product.id === pizza.id);
-    console.log(pizzaz);
-    if (pizzaz) {
-      dispatch({
-        type: "UpdateCartItem",
-        payload: {
-          ...pizzaz,
-          quantity: pizzaz.quantity + 1,
-        },
-      });
-    } else {
-      dispatch({
-        type: "AddCartItem",
-        payload: {
-          id: uuid(),
-          product: { ...pizza },
-          quantity: 1,
-        },
-      });
-    }
-  };
 
   const handelUpdateQuanity = (cart: CartItem, update: string) => {
     if (update === "+") {
@@ -64,15 +40,6 @@ const PizzaOrderList = () => {
 
   return (
     <div className="pizza-list">
-  
-       <ul>
-        {state.pizza.map((piz) => (
-          <li key={piz.name}>
-            {piz.name} - {piz.price}
-            <button onClick={() => handleAddPizza(piz)}>Lägg till</button>
-          </li>
-        ))}
-      </ul> 
       <div>
         {state.cart.map((pizza) => (
           <div className="pizza-content" key={pizza.product.name}>
