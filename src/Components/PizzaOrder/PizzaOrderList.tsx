@@ -64,15 +64,15 @@ const PizzaOrderList = () => {
 
   return (
     <div className="pizza-list">
-      <h3>Valda pizzor</h3>
-      <ul>
+  
+       <ul>
         {state.pizza.map((piz) => (
           <li key={piz.name}>
             {piz.name} - {piz.price}
             <button onClick={() => handleAddPizza(piz)}>Lägg till</button>
           </li>
         ))}
-      </ul>
+      </ul> 
       <div>
         {state.cart.map((pizza) => (
           <div className="pizza-content" key={pizza.product.name}>
@@ -102,7 +102,8 @@ const PizzaOrderList = () => {
           </div>
         ))}
       </div>
-      <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3>
+      {state.cart && state.cart.length > 0 ?  <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3> :  <h3 className="total">Ingen order lagd: {calculateTotalPrice()}: Kr</h3>}
+     
     </div>
   );
 };
