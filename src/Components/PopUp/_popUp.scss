@@ -1,0 +1,44 @@
+@import "../../Scss/Variables/fonts";
+@import "../../Scss/Variables/margin-padding";
+
+.popUpContainer{
+    border: solid black 2px;
+    height: auto;
+    width: 30rem;
+    margin-left: 10rem;
+    padding: 2rem;
+    font-family: $primary-font-family;
+    
+
+    .ingredientList{
+        list-style: none;
+        margin-bottom: $first-margin;
+    }
+
+
+    .pizzaSizeDiv{
+        border: solid black 2px;
+        height: auto;
+        margin-bottom: $first-margin;
+
+        label{
+            margin-right: 1rem;
+        }
+    }
+
+    .extraIngdDiv{
+        border: solid black 2px;
+        height: auto;
+        margin-bottom: $first-margin;
+        display: flex;
+        flex-direction: column;
+        
+  
+        
+        label{
+            margin-right: 1rem;
+            
+        }
+        
+    }
+}
