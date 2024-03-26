@@ -90,7 +90,10 @@
   }
 
   .delete-btn {
-    background-color: red;
-    width: 6em;
+    background-color: rgb(228, 44, 105);
+    color: $white;
+    width: 5em;
+    padding: 2px;
+    cursor: pointer;
   }
 }
