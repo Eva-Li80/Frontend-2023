@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
 import { Pizza } from "../../Type";
 import Button from "@mui/material/Button";
+import uuid from "react-uuid";
 
 type PupUpProps = {
   klickedPizza: Pizza;
@@ -15,7 +16,7 @@ const PopUp = ({ klickedPizza }: PupUpProps) => {
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Du klickade på", e.target.value);
-    setSize(e.target.value);
+    setSize(e.target.value as "standard" | "barn" | "familj");
   };
 
   const handleChangeExtraIng = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,8 +26,10 @@ const PopUp = ({ klickedPizza }: PupUpProps) => {
       setExtraIngr(extraIngr.filter((i) => i !== e.target.value));
     }
   };
-  /*   console.log("extra ing", extraIngr);
-   */ return (
+  console.log("extra ing", extraIngr);
+  console.log("hej", state.cart);
+
+  return (
     <div className="popUpContainer">
       <h2>{klickedPizza.name}</h2>
       <ul className="ingredientList">
@@ -139,7 +142,18 @@ const PopUp = ({ klickedPizza }: PupUpProps) => {
       <Button
         variant="contained"
         onClick={() => {
-          dispatch({ type: "AddCartItem" });
+          dispatch({
+            type: "AddCartItem",
+            payload: {
+              id: uuid(),
+              product: {
+                ...klickedPizza,
+                ingredients: extraIngr,
+                size: size,
+              },
+              quantity: 1,
+            },
+          });
         }}
       >
         Contained{" "}
