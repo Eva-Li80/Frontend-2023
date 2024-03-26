@@ -7,9 +7,10 @@ import uuid from "react-uuid";
 
 type PupUpProps = {
   klickedPizza: Pizza;
+  onClose: () => void;
 };
 
-const PopUp = ({ klickedPizza }: PupUpProps) => {
+const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
   const { state, dispatch } = useContext(PizzaContext);
   const [size, setSize] = useState(klickedPizza.size);
   const [extraIngr, setExtraIngr] = useState(klickedPizza.ingredients);
@@ -154,6 +155,8 @@ const PopUp = ({ klickedPizza }: PupUpProps) => {
               quantity: 1,
             },
           });
+
+          onClose();
         }}
       >
         Contained{" "}
