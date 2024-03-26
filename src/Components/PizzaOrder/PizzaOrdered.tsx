@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,17 +7,22 @@ import {
   DialogActions,
   Typography,
 } from "@mui/material";
+import { PizzaContext } from "../../context/PizzaContextProvider";
 
 const PizzaOrdered = () => {
+ const { state, dispatch } = useContext(PizzaContext)
   const [open, setOpen] = useState(false);
 
   const handleClickToggle = () => {
     setOpen(!open)
+    dispatch({type: "ClearCart"})
   }
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickToggle} className="btn">
+      <Button variant="contained" onClick={handleClickToggle} className="btn"
+      disabled={state.cart.length === 0}
+      >
         Beställ
       </Button>
       <Dialog open={open}>

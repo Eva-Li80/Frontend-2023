@@ -18,6 +18,7 @@ type InitalContextState = {
 type Action =
   | { type: "AddCartItem"; payload: CartItem }
   | { type: "RemoveCartItem"; payload: string }
+  | { type: "ClearCart"}
   | {
       type: "UpdateCartItem";
       payload: CartItem;
@@ -48,6 +49,11 @@ const reducer = (state: State, action: Action) => {
         cart: state.cart.filter((i) => i.id !== action.payload),
         pizza: state.pizza,
       };
+      case "ClearCart":
+        return {
+          ...state,
+          cart: []
+        }
     default:
       return state;
   }
