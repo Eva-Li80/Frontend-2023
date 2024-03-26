@@ -3,11 +3,14 @@ import { PizzaContext } from "../../context/PizzaContextProvider";
 import { Pizza } from "../../Type";
 import SortMenu from "../SortMenu/SortMenu";
 import { Button } from "@mui/material";
+import PopUp from "../PopUp/PopUp";
 
 const PizzaMenu: React.FC = () => {
   const { state } = useContext(PizzaContext);
   const [pizzas, setPizzas] = useState<Pizza[]>(state.pizza);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedPizza, setSelectedPizza] = useState({} as Pizza);
+  const [popUp, setPopUp] = useState(false);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value.toLowerCase();
@@ -17,6 +20,11 @@ const PizzaMenu: React.FC = () => {
     );
     setPizzas(filteredPizzas);
   };
+
+  function handleSelectPizza(pizza: Pizza) {
+    setSelectedPizza(pizza);
+    setPopUp(true);
+  }
 
   return (
     <div className="pizza-menu">
@@ -36,12 +44,24 @@ const PizzaMenu: React.FC = () => {
           </div>
           <div>
             <p>{pizza.price} kr</p>
-            <Button color="success" variant="contained">
+            <Button
+              color="success"
+              variant="contained"
+              onClick={() => handleSelectPizza(pizza)}
+            >
               Välj
             </Button>
           </div>
         </div>
       ))}
+      {popUp ? (
+        <PopUp
+          klickedPizza={selectedPizza}
+          onClose={() => setPopUp(false)}
+        ></PopUp>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
