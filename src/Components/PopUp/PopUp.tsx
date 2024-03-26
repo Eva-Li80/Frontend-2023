@@ -14,10 +14,34 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
   const { state, dispatch } = useContext(PizzaContext);
   const [size, setSize] = useState(klickedPizza.size);
   const [extraIngr, setExtraIngr] = useState(klickedPizza.ingredients);
+  const [quantity, setQuantity] = useState(1);
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Du klickade på", e.target.value);
     setSize(e.target.value as "standard" | "barn" | "familj");
+  };
+
+  const handleUpdateQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuantity(Number(e.target.value));
+  };
+
+  const calculatePrice = () => {
+    const extra = extraIngr.filter((e) => {
+      if (!klickedPizza.ingredients.includes(e)) {
+        return e;
+      }
+    });
+    let extraPrice = 0;
+
+    extraPrice = extra.length * 10;
+
+    if (size === "barn") {
+      return klickedPizza.price + extraPrice - 10;
+    } else if (size === "familj") {
+      return klickedPizza.price + extraPrice + 10;
+    } else {
+      return klickedPizza.price + extraPrice;
+    }
   };
 
   const handleChangeExtraIng = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +69,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={"barn"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="barn">Barn-size</label>
+        <label htmlFor="barn">Barn-size {klickedPizza.price - 10}kr</label>
         <input
           type="radio"
           id="standard"
@@ -53,17 +77,16 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={"standard"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="standard">standard</label>
+        <label htmlFor="standard">standard {klickedPizza.price}kr</label>
         <input
           type="radio"
           id="family"
           name="storlek"
-          value={"family"}
+          value={"familj"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="family">family-size</label>
+        <label htmlFor="family">family-size {klickedPizza.price + 10}kr</label>
       </div>
-
       <div className="extraIngdDiv">
         <h5>Extra ingridienser</h5>
         <div>
@@ -73,7 +96,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"tomat"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="tomat">Tomat</label>
+          <label htmlFor="tomat">Tomat 10kr</label>
 
           <input
             id="gurka"
@@ -81,7 +104,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"gurka"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="gurka">Gurka</label>
+          <label htmlFor="gurka">Gurka 10kr</label>
 
           <input
             id="lök"
@@ -89,7 +112,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"lök"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="lök">Lök</label>
+          <label htmlFor="lök">Lök 10kr</label>
 
           <input
             id="ost"
@@ -97,7 +120,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"ost"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="ost">Ost</label>
+          <label htmlFor="ost">Ost 10kr</label>
 
           <input
             id="fetaost"
@@ -105,7 +128,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"fetaost"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="fetaost">Fetaost</label>
+          <label htmlFor="fetaost">Fetaost 10kr</label>
 
           <input
             id="ruccola"
@@ -113,7 +136,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"ruccola"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="ruccola">Ruccola</label>
+          <label htmlFor="ruccola">Ruccola 10kr</label>
 
           <input
             id="räkor"
@@ -121,7 +144,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"räkor"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="räkor">Räkor</label>
+          <label htmlFor="räkor">Räkor 10kr</label>
 
           <input
             id="pommes"
@@ -129,7 +152,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"pommes"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="pommes">Pommes</label>
+          <label htmlFor="pommes">Pommes 10kr</label>
 
           <input
             id="feferoni"
@@ -137,9 +160,17 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
             value={"feferoni"}
             onChange={handleChangeExtraIng}
           />
-          <label htmlFor="feferoni">Feferoni</label>
+          <label htmlFor="feferoni">Feferoni 10kr</label>
         </div>
       </div>
+      <label htmlFor="quantity">Antal: </label>
+      <input
+        type="number"
+        value={quantity}
+        onChange={handleUpdateQuantity}
+        id="quantity"
+      />
+      Pris: {calculatePrice() * quantity}
       <Button
         variant="contained"
         onClick={() => {
@@ -151,15 +182,16 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
                 ...klickedPizza,
                 ingredients: extraIngr,
                 size: size,
+                price: calculatePrice(),
               },
-              quantity: 1,
+              quantity: quantity,
             },
           });
 
           onClose();
         }}
       >
-        Contained{" "}
+        Lägg till
       </Button>
     </div>
   );
