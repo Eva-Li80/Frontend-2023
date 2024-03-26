@@ -69,7 +69,7 @@ const PizzaOrderList = () => {
           </div>
         ))}
       </div>
-      {state.cart && state.cart.length > 0 ?  <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3> :  <div className="no-order"><h3 className="total">Ingen order lagd: {calculateTotalPrice()}: Kr</h3></div>}
+      {state.cart && state.cart.length > 0 ?  <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3> :  <div className="no-order"><h3 className="total text">Ingen order lagd: {calculateTotalPrice()}: Kr</h3></div>}
      
     </div>
   );
