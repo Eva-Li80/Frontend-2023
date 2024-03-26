@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
-import { CartItem} from "../../Type";
+import { CartItem } from "../../Type";
 
 const PizzaOrderList = () => {
   const { state, dispatch } = useContext(PizzaContext);
@@ -32,6 +32,13 @@ const PizzaOrderList = () => {
     }
   };
 
+  const handleDelete = (id: string) => {
+    dispatch({
+      type: "RemoveCartItem",
+      payload: id,
+    });
+  };
+
   const calculateTotalPrice = () => {
     return state.cart
       .reduce((total, pizza) => total + pizza.product.price * pizza.quantity, 0)
@@ -61,16 +68,30 @@ const PizzaOrderList = () => {
                 +
               </button>
             </div>
+
             <div className="pizza-totalprice">
               <p>
                 Pris: {(pizza.product.price * pizza.quantity).toFixed(2)}: kr
               </p>
             </div>
+            <button
+              className="delete-btn"
+              onClick={() => handleDelete(pizza.id)}
+            >
+              Ta bort
+            </button>
           </div>
         ))}
       </div>
-      {state.cart && state.cart.length > 0 ?  <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3> :  <div className="no-order"><h3 className="total text">Ingen order lagd: {calculateTotalPrice()}: Kr</h3></div>}
-     
+      {state.cart && state.cart.length > 0 ? (
+        <h3 className="total">Totalt pris: {calculateTotalPrice()}: Kr</h3>
+      ) : (
+        <div className="no-order">
+          <h3 className="total text">
+            Ingen order lagd: {calculateTotalPrice()}: Kr
+          </h3>
+        </div>
+      )}
     </div>
   );
 };
