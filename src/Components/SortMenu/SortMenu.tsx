@@ -1,17 +1,19 @@
-import React from "react";
-import { Pizza } from "../../Type";
-
 import AllaImage from "../../Assets/img/unleashed-agency-EZpGDYWBAYA-unsplash.jpg";
 import StandardImage from "../../Assets/img/vit-ch-Oxb84ENcFfU-unsplash.jpg";
 import VegoImage from "../../Assets/img/likemeat-CbNAuxSZTFo-unsplash.jpg";
 import SalladImage from "../../Assets/img/jenny-theolin-Abodxj2grwY-unsplash.jpg";
 
-type SortMenuProps = {
+import React, { useState } from "react";
+import { Pizza } from "../../Type";
+
+interface SortMenuProps {
   pizzas: Pizza[];
   setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>;
-};
+}
 
 const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
   const handleSort = (category: string) => {
     let sortedPizzas: Pizza[] = [];
     switch (category) {
@@ -32,15 +34,22 @@ const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
         break;
     }
     setPizzas(sortedPizzas);
+    setSelectedCategory(category);
   };
 
   return (
     <div className="sort-menu">
-      <div onClick={() => handleSort("all")}>
+      <div
+        className={selectedCategory === "all" ? "selected" : ""}
+        onClick={() => handleSort("all")}
+      >
         <img src={AllaImage} alt="Alla" className="sort-image all" />
         <h3>ALLA</h3>
       </div>
-      <div onClick={() => handleSort("pizza")}>
+      <div
+        className={selectedCategory === "pizza" ? "selected" : ""}
+        onClick={() => handleSort("pizza")}
+      >
         <img
           src={StandardImage}
           alt="Standard"
@@ -48,11 +57,17 @@ const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
         />
         <h3>PIZZA</h3>
       </div>
-      <div onClick={() => handleSort("vego")}>
+      <div
+        className={selectedCategory === "vego" ? "selected" : ""}
+        onClick={() => handleSort("vego")}
+      >
         <img src={VegoImage} alt="Vego" className="sort-image vego" />
         <h3>VEGO</h3>
       </div>
-      <div onClick={() => handleSort("sallad")}>
+      <div
+        className={selectedCategory === "sallad" ? "selected" : ""}
+        onClick={() => handleSort("sallad")}
+      >
         <img src={SalladImage} alt="Sallad" className="sort-image sallad" />
         <h3>SALLAD</h3>
       </div>
