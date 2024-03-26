@@ -23,6 +23,7 @@ const PizzaMenu: React.FC = () => {
 
   function handleSelectPizza(pizza: Pizza) {
     setSelectedPizza(pizza);
+    setSearchTerm("")
     setPopUp(true);
   }
 
