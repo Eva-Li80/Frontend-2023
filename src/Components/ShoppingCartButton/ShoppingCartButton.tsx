@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { PizzaContext } from "../../context/PizzaContextProvider"
+import { Link } from "react-router-dom"
 
 const ShoppingCartButton = () => {
   const { state } = useContext(PizzaContext)
@@ -12,10 +13,10 @@ const ShoppingCartButton = () => {
     return sum
   }
   return (
-    <div className="shopping-cart-button">
+    <Link className="shopping-cart-button" to={"/order"}>
       <p>{getNumberOfItemsOrdered()}</p>
       <p>🛒</p>
-    </div>
+    </Link>
   )
 }
 
