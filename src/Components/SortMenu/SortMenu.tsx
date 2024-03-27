@@ -6,10 +6,10 @@ import SalladImage from "../../Assets/img/jenny-theolin-Abodxj2grwY-unsplash.jpg
 import React, { useState } from "react";
 import { Pizza } from "../../Type";
 
-interface SortMenuProps {
+type SortMenuProps = {
   pizzas: Pizza[];
   setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>;
-}
+};
 
 const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
