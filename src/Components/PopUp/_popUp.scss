@@ -2,38 +2,71 @@
 @import "../../Scss/Variables/margin-padding";
 @import "../../Scss/Variables/colors";
 
-.popUpContainer {
+.popUp-module {
   border: solid black 2px;
   height: auto;
-  width: 30rem;
+  width: 40.3vw;
   background-color: $pink;
   padding: 2rem;
   font-family: $primary-font-family;
 
-  .ingredientList {
+  #pizzaName{
+    color: $dark-green;
+  }
+
+  .ingredient-list {
     list-style: none;
     margin-bottom: $first-margin;
   }
 
-  .pizzaSizeDiv {
+  .pizza-size-box {
     border: solid black 2px;
     height: auto;
     margin-bottom: $first-margin;
+    padding: $first-padding;
 
     label {
       margin-right: 1rem;
     }
+    input {
+      margin-bottom: 0rem;
+    }
   }
 
-  .extraIngdDiv {
+  .extra-ingredients-box {
     border: solid black 2px;
     height: auto;
     margin-bottom: $first-margin;
     display: flex;
     flex-direction: column;
+    padding: $first-padding;
 
     label {
       margin-right: 1rem;
+      
+
+      
+      input{
+        flex: 0 0 calc(33.33% - 10px);
+        margin-left: 0.3rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  .order-info-box{
+    border: solid black 2px;
+    height: auto;
+    padding: $first-padding;
+
+    #quantity{
+      margin-right: 1rem;
+    }
+
+    .add-btn{
+      margin-left: 1rem;
+      background-color: $green;
+      
     }
   }
 }
