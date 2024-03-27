@@ -13,17 +13,18 @@
     border-bottom: 2px solid $pink;
     background-color: white;
     min-height: 40rem;
+    margin-bottom: $third-margin;
     .search {
-      margin: 1em;
+      margin: $second-margin;
       border-radius: 15px;
-      padding: 5px 5px 5px 10px;
+      padding: $first-padding;
     }
     .menu-item {
       display: flex;
       flex-direction: row;
       width: 40vw;
       justify-content: space-between;
-      padding: 1em;
+      padding: $first-padding;
     }
   }
 
