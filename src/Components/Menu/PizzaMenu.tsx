@@ -23,7 +23,7 @@ const PizzaMenu: React.FC = () => {
 
   function handleSelectPizza(pizza: Pizza) {
     setSelectedPizza(pizza);
-    setSearchTerm("")
+    setSearchTerm("");
     setPopUp(true);
   }
 
@@ -59,7 +59,10 @@ const PizzaMenu: React.FC = () => {
         <div className="modal">
           <PopUp
             klickedPizza={selectedPizza}
-            onClose={() => setPopUp(false)}
+            onClose={() => {
+              setPopUp(false);
+              setPizzas(state.pizza);
+            }}
           ></PopUp>
         </div>
       ) : (
