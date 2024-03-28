@@ -21,13 +21,13 @@ const SortMenu = ({ pizzas, setPizzas }: SortMenuProps) => {
         sortedPizzas = pizzas;
         break;
       case "pizza":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "pizza");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "pizza");
         break;
       case "vego":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "vego");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "vego");
         break;
       case "sallad":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "sallad");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "sallad");
         break;
       default:
         sortedPizzas = pizzas;
