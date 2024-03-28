@@ -1,4 +1,15 @@
 //Ordered
+
+.ordered {
+  .btn-order {
+    background-color: $dark-green;
+    border: 2px solid $black;
+    margin: 100px 50px 0px 50px;
+  }
+  .btn-order:hover {
+    background-color: $green;
+  }
+}
 .dialog {
   border: 2px solid $green;
   background-color: $black;
@@ -13,8 +24,6 @@
   .action-btn:hover {
     background-color: $green;
   }
-
- 
 }
 
 //No ordered

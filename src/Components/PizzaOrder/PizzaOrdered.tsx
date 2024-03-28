@@ -19,11 +19,11 @@ const PizzaOrdered = () => {
   };
 
   return (
-    <div>
+    <div className="ordered">
       <Button
         variant="contained"
         onClick={handleClickToggle}
-        className="btn"
+        className="btn-order"
         disabled={state.cart.length === 0}
       >
         Beställ

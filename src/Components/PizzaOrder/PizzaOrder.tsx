@@ -52,40 +52,42 @@ const PizzaOrder = () => {
 
   return (
     <>
-      <div className="pizza-container">
-        <div className="order-header-container">
-          <Loggo />
-          <h1 className="order-header">Din beställning!</h1>
-        </div>
-        <div>
-          {state.cart.map((pizza) => (
-            <PizzaOrderListItem
-              pizza={pizza}
-              handleUpdateQuantity={handelUpdateQuantity}
-              handleDelete={handleDeleteCartItem}
-            />
-          ))}
+      <div className="pizza-order-container">
+        <div className="pizza-container">
+          <div className="order-header-container">
+            <Loggo />
+            <h1 className="order-header">Din beställning!</h1>
+          </div>
+          <div>
+            {state.cart.map((pizza) => (
+              <PizzaOrderListItem
+                pizza={pizza}
+                handleUpdateQuantity={handelUpdateQuantity}
+                handleDelete={handleDeleteCartItem}
+              />
+            ))}
 
-          {state.cart && state.cart.length > 0 ? (
-            <h3 className="price-cartitem">
-              Totalt pris: {calculateTotalPrice()} Kr
-            </h3>
-          ) : (
-            <div className="no-order">
-              <h3 className="price-cartitem text">
-                Ingen order : {calculateTotalPrice()} Kr
+            {state.cart && state.cart.length > 0 ? (
+              <h3 className="price-cartitem">
+                Totalt pris: {calculateTotalPrice()} Kr
               </h3>
-            </div>
-          )}
-        </div>
-        <div className="order-btn-container">
-          <Button className="btn" variant="contained">
-            <Link className="link" to="/">
-              {" "}
-              Lägg till mer ?
-            </Link>
-          </Button>
-          <PizzaOrdered />
+            ) : (
+              <div className="no-order">
+                <h3 className="price-cartitem text">
+                  Ingen order : {calculateTotalPrice()} Kr
+                </h3>
+              </div>
+            )}
+          </div>
+          <div className="order-btn-container">
+            <Button className="btn" variant="contained">
+              <Link className="link" to="/">
+                {" "}
+                Lägg till mer ?
+              </Link>
+            </Button>
+            <PizzaOrdered />
+          </div>
         </div>
       </div>
     </>
