@@ -55,7 +55,7 @@ const PizzaOrder = () => {
       <div className="pizza-container">
         <div className="order-header-container">
           <Loggo />
-          <h2 className="order-header">Din beställning!</h2>
+          <h1 className="order-header">Din beställning!</h1>
         </div>
         <div>
           {state.cart.map((pizza) => (
