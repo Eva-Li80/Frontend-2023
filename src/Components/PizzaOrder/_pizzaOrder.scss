@@ -3,14 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
   .pizza-container {
-  width: 100vh;
-  margin-top: 50px;
-  max-width: 800px;
- 
-
-  padding: 50px;
-
+    width: 100vh;
+    margin-top: 50px;
+    max-width: 800px;
+    padding: 50px;
 
     .order-header-container {
       display: flex;
@@ -23,7 +21,6 @@
       padding: 10px;
       position: relative;
       width: 100%;
- 
 
       .loggo {
         width: 45px;
@@ -50,7 +47,6 @@
       text-align: end;
       margin-right: 1.3em;
       font-size: $second-font-size;
-    
     }
 
     .order-btn-container {
