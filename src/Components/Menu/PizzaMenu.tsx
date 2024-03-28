@@ -47,7 +47,6 @@ const PizzaMenu: React.FC = () => {
             <p>{pizza.price} kr</p>
             <Button
               sx={{ backgroundColor: "#4EB395" }}
-              /* color="success" */
               variant="contained"
               onClick={() => handleSelectPizza(pizza)}
             >

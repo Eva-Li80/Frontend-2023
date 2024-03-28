@@ -1,6 +1,6 @@
 export type Pizza = {
   id: string;
-  type: "pizza" | "sallad" | "vego";
+  category: "pizza" | "sallad" | "vego";
   name: string;
   ingredients: string[];
   price: number;
@@ -16,7 +16,7 @@ export type CartItem = {
 export const pizzas: Pizza[] = [
   {
     id: "1",
-    type: "pizza",
+    category: "pizza",
     name: "Margherita",
     ingredients: ["tomatsås", "mozzarella", "basilika"],
     price: 85,
@@ -24,7 +24,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "2",
-    type: "pizza",
+    category: "pizza",
     name: "Capricciosa",
     ingredients: ["tomatsås", "mozzarella", "skinka", "champinjoner", "oliver"],
     price: 95,
@@ -32,7 +32,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "3",
-    type: "pizza",
+    category: "pizza",
     name: "Quattro Stagioni",
     ingredients: [
       "tomatsås",
@@ -48,7 +48,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "4",
-    type: "pizza",
+    category: "pizza",
     name: "Caprese",
     ingredients: ["tomatsås", "mozzarella", "tomater", "basilika", "olivolja"],
     price: 90,
@@ -56,7 +56,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "5",
-    type: "pizza",
+    category: "pizza",
     name: "Pepperoni",
     ingredients: ["tomatsås", "mozzarella", "pepperoni"],
     price: 95,
@@ -64,7 +64,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "6",
-    type: "vego",
+    category: "vego",
     name: "Vegetariana",
     ingredients: [
       "tomatsås",
@@ -79,7 +79,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "7",
-    type: "vego",
+    category: "vego",
     name: "Margarita Vegana",
     ingredients: ["tomatsås", "vegansk ost", "basilika"],
     price: 95,
@@ -87,7 +87,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "8",
-    type: "vego",
+    category: "vego",
     name: "Quattro Formaggi",
     ingredients: [
       "tomatsås",
@@ -101,7 +101,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "9",
-    type: "vego",
+    category: "vego",
     name: "Funghi",
     ingredients: ["tomatsås", "mozzarella", "champinjoner"],
     price: 85,
@@ -109,7 +109,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "10",
-    type: "vego",
+    category: "vego",
     name: "Hawaiian Veggie",
     ingredients: ["tomatsås", "mozzarella", "ananas", "paprika"],
     price: 95,
@@ -117,7 +117,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "11",
-    type: "sallad",
+    category: "sallad",
     name: "Caesarsallad",
     ingredients: [
       "salladsblandning",
@@ -131,7 +131,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "12",
-    type: "sallad",
+    category: "sallad",
     name: "Grekisk Sallad",
     ingredients: [
       "salladsblandning",
@@ -146,7 +146,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "13",
-    type: "sallad",
+    category: "sallad",
     name: "Caprese Sallad",
     ingredients: ["tomater", "mozzarella", "basilika", "olivolja"],
     price: 80,
@@ -154,7 +154,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "14",
-    type: "sallad",
+    category: "sallad",
     name: "Pastasallad",
     ingredients: [
       "pasta",
@@ -170,7 +170,7 @@ export const pizzas: Pizza[] = [
   },
   {
     id: "15",
-    type: "sallad",
+    category: "sallad",
     name: "Avokado- och Räksallad",
     ingredients: [
       "avokado",
