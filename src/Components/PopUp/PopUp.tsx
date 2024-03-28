@@ -185,6 +185,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
           value={quantity}
           onChange={handleUpdateQuantity}
           id="quantity"
+          min={1}
         />
         Pris: {calculatePrice() * quantity}
         <Button
@@ -209,6 +210,9 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
           }}
         >
           Lägg till
+        </Button>
+        <Button variant="contained" className="abort-btn" onClick={onClose}>
+          Avbryt
         </Button>
       </div>
     </div>

@@ -12,8 +12,8 @@ const PizzaMenu: React.FC = () => {
   const [selectedPizza, setSelectedPizza] = useState({} as Pizza);
   const [popUp, setPopUp] = useState(false);
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchTerm = event.target.value.toLowerCase();
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = e.target.value.toLowerCase();
     setSearchTerm(searchTerm);
     const filteredPizzas = state.pizza.filter((pizza) =>
       pizza.name.toLowerCase().includes(searchTerm)
@@ -47,7 +47,6 @@ const PizzaMenu: React.FC = () => {
             <p>{pizza.price} kr</p>
             <Button
               sx={{ backgroundColor: "#4EB395" }}
-              /* color="success" */
               variant="contained"
               onClick={() => handleSelectPizza(pizza)}
             >

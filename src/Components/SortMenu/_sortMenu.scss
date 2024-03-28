@@ -9,20 +9,21 @@
   background-color: #ffd5f0;
   border-top: 2px solid $pink;
   border-bottom: 2px solid $pink;
-  div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  h3 {
+    text-align: center;
+  }
+  .selected {
+    border: solid 2px $green;
+    border-radius: 10%;
   }
   img {
     max-width: 5rem;
     max-height: 5rem;
     border-radius: 10%;
     border: solid 2px $pink;
+    &:hover {
+      border: solid 2px $green;
+      cursor: pointer;
+    }
   }
-}
-
-.selected {
-  border: solid 2px $green;
-  border-radius: 10%;
 }

@@ -11,7 +11,7 @@ type SortMenuProps = {
   setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>;
 };
 
-const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
+const SortMenu = ({ pizzas, setPizzas }: SortMenuProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const handleSort = (category: string) => {
@@ -21,13 +21,13 @@ const SortMenu: React.FC<SortMenuProps> = ({ pizzas, setPizzas }) => {
         sortedPizzas = pizzas;
         break;
       case "pizza":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "pizza");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "pizza");
         break;
       case "vego":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "vego");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "vego");
         break;
       case "sallad":
-        sortedPizzas = pizzas.filter((pizza) => pizza.type === "sallad");
+        sortedPizzas = pizzas.filter((pizza) => pizza.category === "sallad");
         break;
       default:
         sortedPizzas = pizzas;

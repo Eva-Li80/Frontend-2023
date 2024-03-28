@@ -10,7 +10,7 @@
   padding: 2rem;
   font-family: $primary-font-family;
 
-  #pizzaName{
+  #pizzaName {
     color: $dark-green;
   }
 
@@ -43,10 +43,8 @@
 
     label {
       margin-right: 1rem;
-      
 
-      
-      input{
+      input {
         flex: 0 0 calc(33.33% - 10px);
         margin-left: 0.3rem;
         margin-top: 0.5rem;
@@ -54,19 +52,24 @@
     }
   }
 
-  .order-info-box{
+  .order-info-box {
     border: solid black 2px;
     height: auto;
     padding: $first-padding;
 
-    #quantity{
+    #quantity {
       margin-right: 1rem;
     }
 
-    .add-btn{
+    .add-btn {
       margin-left: 1rem;
       background-color: $green;
-      
+    }
+
+    .abort-btn {
+      background-color: $pink;
+      border: 1px solid black;
+      margin-left: 1rem;
     }
   }
 }
