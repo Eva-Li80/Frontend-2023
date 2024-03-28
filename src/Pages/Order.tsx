@@ -1,11 +1,9 @@
-import PizzaOrderContainer from "../Components/PizzaOrder/PizzaOrderContainer"
-
-
+import PizzaOrder from "../Components/PizzaOrder/PizzaOrder"
 
 const Order = () => {
   return (
-    <div>
-        <PizzaOrderContainer/>
+    <div className="order-page">
+        <PizzaOrder/>
     </div>
   )
 }
