@@ -59,7 +59,7 @@ const PizzaMenu: React.FC = () => {
       {popUp ? (
         <div className="modal">
           <PopUp
-            klickedPizza={selectedPizza}
+            selectedPizza={selectedPizza}
             onClose={() => {
               setPopUp(false);
               setPizzas(state.pizza);

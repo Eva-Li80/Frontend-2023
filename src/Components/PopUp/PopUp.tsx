@@ -6,14 +6,14 @@ import Button from "@mui/material/Button";
 import uuid from "react-uuid";
 
 type PupUpProps = {
-  klickedPizza: Pizza;
+  selectedPizza: Pizza;
   onClose: () => void;
 };
 
-const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
+const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
   const { state, dispatch } = useContext(PizzaContext);
-  const [size, setSize] = useState(klickedPizza.size);
-  const [extraIngr, setExtraIngr] = useState(klickedPizza.ingredients);
+  const [size, setSize] = useState(selectedPizza.size);
+  const [extraIngr, setExtraIngr] = useState(selectedPizza.ingredients);
   const [quantity, setQuantity] = useState(1);
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +26,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
 
   const calculatePrice = () => {
     const extra = extraIngr.filter((e) => {
-      if (!klickedPizza.ingredients.includes(e)) {
+      if (!selectedPizza.ingredients.includes(e)) {
         return e;
       }
     });
@@ -35,11 +35,11 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
     extraPrice = extra.length * 10;
 
     if (size === "barn") {
-      return klickedPizza.price + extraPrice - 10;
+      return selectedPizza.price + extraPrice - 10;
     } else if (size === "familj") {
-      return klickedPizza.price + extraPrice + 10;
+      return selectedPizza.price + extraPrice + 10;
     } else {
-      return klickedPizza.price + extraPrice;
+      return selectedPizza.price + extraPrice;
     }
   };
 
@@ -53,9 +53,9 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
 
   return (
     <div className="popUp-module">
-      <h2 id="pizzaName">{klickedPizza.name}</h2>
+      <h2 id="pizzaName">{selectedPizza.name}</h2>
       <ul className="ingredient-list">
-        <h5>Ingridienser: {klickedPizza.ingredients.join(", ")}</h5>
+        <h5>Ingridienser: {selectedPizza.ingredients.join(", ")}</h5>
       </ul>
       <div className="pizza-size-box">
         <h5>Välj storlek</h5>
@@ -66,7 +66,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={"barn"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="barn">Barn-size {klickedPizza.price - 10}kr</label>
+        <label htmlFor="barn">Barn-size {selectedPizza.price - 10}kr</label>
         <input
           type="radio"
           id="standard"
@@ -74,7 +74,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={"standard"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="standard">standard {klickedPizza.price}kr</label>
+        <label htmlFor="standard">standard {selectedPizza.price}kr</label>
         <input
           type="radio"
           id="family"
@@ -82,7 +82,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={"familj"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="family">family-size {klickedPizza.price + 10}kr</label>
+        <label htmlFor="family">family-size {selectedPizza.price + 10}kr</label>
       </div>
       <div className="extra-ingredients-box">
         <h5>Extra ingridienser</h5>
@@ -197,7 +197,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
               payload: {
                 id: uuid(),
                 product: {
-                  ...klickedPizza,
+                  ...selectedPizza,
                   ingredients: extraIngr,
                   size: size,
                   price: calculatePrice(),
