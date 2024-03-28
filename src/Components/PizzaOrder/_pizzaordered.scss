@@ -30,11 +30,9 @@
   @include displayFlexAll(column);
   margin-left: 1.3em;
 
-
   .text {
-   color: $dark-green;
-   padding: 80px 50px;;
-   border: 2px solid $green;
-
+    color: $dark-green;
+    padding: 80px 50px;
+    border: 2px solid $green;
   }
 }
