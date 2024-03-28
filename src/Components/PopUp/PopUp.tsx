@@ -53,12 +53,14 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
 
   return (
     <div className="popUp-module">
-      <h2 id="pizzaName">{selectedPizza.name}</h2>
+      <h2 id="pizza-title">{selectedPizza.name}</h2>
       <ul className="ingredient-list">
-        <h5>Ingridienser: {selectedPizza.ingredients.join(", ")}</h5>
+        <h5 id="ingredient-heading">
+          Ingridienser: {selectedPizza.ingredients.join(", ")}
+        </h5>
       </ul>
       <div className="pizza-size-box">
-        <h5>Välj storlek</h5>
+        <h5 id="size-heading">Välj storlek</h5>
         <input
           type="radio"
           id="barn"
@@ -66,7 +68,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
           value={"barn"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="barn">Barn-size {selectedPizza.price - 10}kr</label>
+        <label htmlFor="barn">Barnpizza {selectedPizza.price - 10}kr</label>
         <input
           type="radio"
           id="standard"
@@ -74,7 +76,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
           value={"standard"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="standard">standard {selectedPizza.price}kr</label>
+        <label htmlFor="standard">Standard {selectedPizza.price}kr</label>
         <input
           type="radio"
           id="family"
@@ -82,138 +84,148 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
           value={"familj"}
           onChange={handleChangeSize}
         />
-        <label htmlFor="family">family-size {selectedPizza.price + 10}kr</label>
+        <label htmlFor="family">
+          Familjepizza {selectedPizza.price + 10}kr
+        </label>
       </div>
       <div className="extra-ingredients-box">
-        <h5>Extra ingridienser</h5>
-        <div>
-          <label htmlFor="tomat">
-            Tomat 10kr
+        <h5 id="extraIngr-heading">Extra ingridienser</h5>
+        <div className="ingredient-grid">
+          <div id="tomato-box">
             <input
               id="tomat"
               type="checkbox"
               value={"tomat"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="tomat">Tomat 10kr</label>
+          </div>
 
-          <label htmlFor="gurka">
-            Gurka 10kr
+          <div id="cucumber-box">
             <input
               id="gurka"
               type="checkbox"
               value={"gurka"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="gurka">Gurka 10kr</label>
+          </div>
 
-          <label htmlFor="lök">
-            Lök 10kr
+          <div id="onion-box">
             <input
               id="lök"
               type="checkbox"
               value={"lök"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="lök">Lök 10kr</label>
+          </div>
 
-          <label htmlFor="ost">
-            Ost 10kr
+          <div id="cheese-box">
             <input
               id="ost"
               type="checkbox"
               value={"ost"}
               onChange={handleChangeExtraIng}
             />
-          </label>
 
-          <label htmlFor="fetaost">
-            Fetaost 10kr
+            <label htmlFor="ost">Ost 10kr</label>
+          </div>
+
+          <div id="fetacheese-box">
             <input
               id="fetaost"
               type="checkbox"
               value={"fetaost"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="fetaost">Fetaost 10kr</label>
+          </div>
 
-          <label htmlFor="ruccola">
-            Ruccola 10kr
+          <div id="ruccola-box">
             <input
               id="ruccola"
               type="checkbox"
               value={"ruccola"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="ruccola">Ruccola 10kr</label>
+          </div>
 
-          <label htmlFor="räkor">
-            Räkor 10kr
+          <div id="shrimp-box">
             <input
               id="räkor"
               type="checkbox"
               value={"räkor"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="räkor">Räkor 10kr</label>
+          </div>
 
-          <label htmlFor="pommes">
-            Pommes 10kr
+          <div id="fries-box">
             <input
               id="pommes"
               type="checkbox"
               value={"pommes"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="pommes">Pommes 10kr</label>
+          </div>
 
-          <label htmlFor="feferoni">
-            Feferoni 10kr
+          <div id="feferoni-box">
             <input
               id="feferoni"
               type="checkbox"
               value={"feferoni"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+            <label htmlFor="feferoni">Feferoni 10kr</label>
+          </div>
         </div>
       </div>
       <div className="order-info-box">
-        <label htmlFor="quantity">Antal: </label>
-        <input
-          type="number"
-          value={quantity}
-          onChange={handleUpdateQuantity}
-          id="quantity"
-          min={1}
-        />
-        Pris: {calculatePrice() * quantity}
-        <Button
-          className="add-btn"
-          variant="contained"
-          color="success"
-          onClick={() => {
-            dispatch({
-              type: "AddCartItem",
-              payload: {
-                id: uuid(),
-                product: {
-                  ...selectedPizza,
-                  ingredients: extraIngr,
-                  size: size,
-                  price: calculatePrice(),
+        <div className="quantity-price-box">
+          <label htmlFor="quantity">
+            <p>Antal:</p>{" "}
+          </label>
+          <input
+            type="number"
+            value={quantity}
+            onChange={handleUpdateQuantity}
+            id="quantity"
+            min={1}
+          />
+          <p>Pris: {calculatePrice() * quantity}</p>
+        </div>
+
+        <div className="submit-abort-box">
+          <Button
+            className="add-btn"
+            variant="contained"
+            color="success"
+            onClick={() => {
+              dispatch({
+                type: "AddCartItem",
+                payload: {
+                  id: uuid(),
+                  product: {
+                    ...selectedPizza,
+                    ingredients: extraIngr,
+                    size: size,
+                    price: calculatePrice(),
+                  },
+                  quantity: quantity,
                 },
-                quantity: quantity,
-              },
-            });
-            onClose();
-          }}
-        >
-          Lägg till
-        </Button>
-        <Button variant="contained" className="abort-btn" onClick={onClose}>
-          Avbryt
-        </Button>
+              });
+              onClose();
+            }}
+          >
+            Lägg till
+          </Button>
+          <Button variant="contained" className="abort-btn" onClick={onClose}>
+            Avbryt
+          </Button>
+        </div>
       </div>
     </div>
   );
