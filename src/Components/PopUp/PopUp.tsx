@@ -70,6 +70,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
         />
         <label htmlFor="barn">Barnpizza {selectedPizza.price - 10}kr</label>
         <input
+          checked
           type="radio"
           id="standard"
           name="storlek"
