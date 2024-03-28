@@ -211,6 +211,9 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
         >
           Lägg till
         </Button>
+        <Button variant="contained" className="abort-btn" onClick={onClose}>
+          Avbryt
+        </Button>
       </div>
     </div>
   );
