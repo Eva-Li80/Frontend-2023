@@ -13,6 +13,20 @@ export type CartItem = {
   quantity: number;
 };
 
+export const extraIngredients = [
+  "Tomat",
+  "Gurka",
+  "Lök",
+  "Ost",
+  "Fetaost",
+  "Ruccola",
+  "Räkor",
+  "Pommes",
+  "Feferoni",
+];
+
+export const sizes = ["standard", "barn", "familj"];
+
 export const pizzas: Pizza[] = [
   {
     id: "1",

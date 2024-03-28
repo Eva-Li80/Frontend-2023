@@ -1,7 +1,7 @@
 import "./_popUp.scss";
 import { useContext, useState } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
-import { Pizza } from "../../Type";
+import { Pizza, extraIngredients, sizes } from "../../Type";
 import Button from "@mui/material/Button";
 import uuid from "react-uuid";
 
@@ -54,40 +54,59 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
   return (
     <div className="popUp-module">
       <h2 id="pizzaName">{klickedPizza.name}</h2>
-      <ul className="ingredient-list">
-        <h5>Ingridienser: {klickedPizza.ingredients.join(", ")}</h5>
+      <ul className="ingredients">
+        <h4>Ingridienser: {klickedPizza.ingredients.join(", ")}</h4>
       </ul>
       <div className="pizza-size-box">
-        <h5>Välj storlek</h5>
-        <input
-          type="radio"
-          id="barn"
-          name="storlek"
-          value={"barn"}
-          onChange={handleChangeSize}
-        />
-        <label htmlFor="barn">Barn-size {klickedPizza.price - 10}kr</label>
-        <input
-          type="radio"
-          id="standard"
-          name="storlek"
-          value={"standard"}
-          onChange={handleChangeSize}
-        />
-        <label htmlFor="standard">standard {klickedPizza.price}kr</label>
-        <input
-          type="radio"
-          id="family"
-          name="storlek"
-          value={"familj"}
-          onChange={handleChangeSize}
-        />
-        <label htmlFor="family">family-size {klickedPizza.price + 10}kr</label>
+        <h3>Välj storlek</h3>
+        <div className="list">
+          <div className="list-item">
+            <input
+              type="radio"
+              id="barn"
+              name="storlek"
+              value={"barn"}
+              onChange={handleChangeSize}
+            />
+            <label htmlFor="barn">Barn {klickedPizza.price - 10}kr</label>
+          </div>
+          <div className="list-item">
+            <input
+              type="radio"
+              id="standard"
+              name="storlek"
+              value={"standard"}
+              onChange={handleChangeSize}
+            />
+            <label htmlFor="standard">Standard {klickedPizza.price}kr</label>
+          </div>
+          <div className="list-item">
+            <input
+              type="radio"
+              id="family"
+              name="storlek"
+              value={"familj"}
+              onChange={handleChangeSize}
+            />
+            <label htmlFor="family">Familj {klickedPizza.price + 10}kr</label>
+          </div>
+        </div>
       </div>
       <div className="extra-ingredients-box">
-        <h5>Extra ingridienser</h5>
-        <div>
-          <label htmlFor="tomat">
+        <h3>Extra ingridienser</h3>
+        <div className="list">
+          {extraIngredients.map((i) => (
+            <div className="list-item">
+              <input
+                id={i}
+                type="checkbox"
+                value={i}
+                onChange={handleChangeExtraIng}
+              />
+              <label htmlFor={i}>{i} 10kr</label>
+            </div>
+          ))}
+          {/* <label htmlFor="tomat">
             Tomat 10kr
             <input
               id="tomat"
@@ -175,7 +194,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
               value={"feferoni"}
               onChange={handleChangeExtraIng}
             />
-          </label>
+          </label> */}
         </div>
       </div>
       <div className="order-info-box">
