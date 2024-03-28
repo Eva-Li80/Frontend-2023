@@ -185,6 +185,7 @@ const PopUp = ({ klickedPizza, onClose }: PupUpProps) => {
           value={quantity}
           onChange={handleUpdateQuantity}
           id="quantity"
+          min={1}
         />
         Pris: {calculatePrice() * quantity}
         <Button
