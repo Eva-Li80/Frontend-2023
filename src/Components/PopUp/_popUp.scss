@@ -109,13 +109,14 @@
     .submit-abort-box {
       .add-btn {
         margin-left: 1rem;
+        border: 1px solid black;
         background-color: $green;
       }
 
       .abort-btn {
-        background-color: rgb(243, 126, 126);
+        background-color: $dark-pink;
         border: 1px solid black;
-        margin-left: 1rem;
+        margin-left: 2rem;
       }
     }
   }
