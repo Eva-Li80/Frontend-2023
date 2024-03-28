@@ -7,7 +7,7 @@
   padding: 30px;
   margin: 20px 20px;
   background-color: $white;
-  font-size: 19px;
+  font-size: $third-font-size;
 
   .pizza-name {
     flex-basis: 50%;
@@ -41,7 +41,7 @@
   }
 
   .pizza-quantity {
-    font-size: 18px;
+    font-size: $third-font-size;
     margin: 0 15px;
   }
 
@@ -49,7 +49,7 @@
     flex-basis: 40%;
   }
   .delete-btn {
-    background-color: rgb(228, 44, 105);
+    background-color:$dark-pink;
     color: $white;
     width: 5em;
     padding: 2px;
