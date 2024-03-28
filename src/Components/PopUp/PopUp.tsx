@@ -1,7 +1,7 @@
 import "./_popUp.scss";
 import { useContext, useState } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
-import { Pizza } from "../../Type";
+import { Pizza, extraIngredients } from "../../Type";
 import Button from "@mui/material/Button";
 import uuid from "react-uuid";
 
@@ -70,6 +70,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
         />
         <label htmlFor="barn">Barnpizza {selectedPizza.price - 10}kr</label>
         <input
+          checked
           type="radio"
           id="standard"
           name="storlek"
@@ -91,96 +92,17 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
       <div className="extra-ingredients-box">
         <h5 id="extraIngr-heading">Extra ingridienser</h5>
         <div className="ingredient-grid">
-          <div id="tomato-box">
-            <input
-              id="tomat"
-              type="checkbox"
-              value={"tomat"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="tomat">Tomat 10kr</label>
-          </div>
-
-          <div id="cucumber-box">
-            <input
-              id="gurka"
-              type="checkbox"
-              value={"gurka"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="gurka">Gurka 10kr</label>
-          </div>
-
-          <div id="onion-box">
-            <input
-              id="lök"
-              type="checkbox"
-              value={"lök"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="lök">Lök 10kr</label>
-          </div>
-
-          <div id="cheese-box">
-            <input
-              id="ost"
-              type="checkbox"
-              value={"ost"}
-              onChange={handleChangeExtraIng}
-            />
-
-            <label htmlFor="ost">Ost 10kr</label>
-          </div>
-
-          <div id="fetacheese-box">
-            <input
-              id="fetaost"
-              type="checkbox"
-              value={"fetaost"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="fetaost">Fetaost 10kr</label>
-          </div>
-
-          <div id="ruccola-box">
-            <input
-              id="ruccola"
-              type="checkbox"
-              value={"ruccola"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="ruccola">Ruccola 10kr</label>
-          </div>
-
-          <div id="shrimp-box">
-            <input
-              id="räkor"
-              type="checkbox"
-              value={"räkor"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="räkor">Räkor 10kr</label>
-          </div>
-
-          <div id="fries-box">
-            <input
-              id="pommes"
-              type="checkbox"
-              value={"pommes"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="pommes">Pommes 10kr</label>
-          </div>
-
-          <div id="feferoni-box">
-            <input
-              id="feferoni"
-              type="checkbox"
-              value={"feferoni"}
-              onChange={handleChangeExtraIng}
-            />
-            <label htmlFor="feferoni">Feferoni 10kr</label>
-          </div>
+          {extraIngredients.map((i) => (
+            <div id={i}>
+              <input
+                id={i}
+                type="checkbox"
+                value={i}
+                onChange={handleChangeExtraIng}
+              />
+              <label htmlFor={i}>{i} 10kr</label>
+            </div>
+          ))}
         </div>
       </div>
       <div className="order-info-box">

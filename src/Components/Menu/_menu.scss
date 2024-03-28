@@ -26,6 +26,12 @@
       justify-content: space-between;
       padding: $first-padding;
     }
+    .btn {
+      border: 2px solid $black;
+    }
+    .btn:hover {
+      background-color: $pink;
+    }
   }
 
   .modal {
