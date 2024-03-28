@@ -5,13 +5,20 @@
 .popUp-module {
   border: solid black 2px;
   height: auto;
-  width: 40.3vw;
-  background-color: $pink;
+  width: 43vw;
+  background-color: $white;
   padding: 2rem;
   font-family: $primary-font-family;
 
-  #pizzaName {
+  #pizza-title {
     color: $dark-green;
+    font-size: 30px;
+    margin-bottom: 0.3rem;
+  }
+
+  #ingredient-heading {
+    font-size: 20px;
+    margin-bottom: 0.3rem;
   }
 
   .ingredient-list {
@@ -25,11 +32,19 @@
     margin-bottom: $first-margin;
     padding: $first-padding;
 
-    label {
-      margin-right: 1rem;
+    #size-heading {
+      font-size: 20px;
+      margin-bottom: 0.2rem;
     }
     input {
       margin-bottom: 0rem;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+    }
+    label {
+      margin-right: 1rem;
+      font-size: 20px;
     }
   }
 
@@ -41,13 +56,25 @@
     flex-direction: column;
     padding: $first-padding;
 
-    label {
-      margin-right: 1rem;
+    #extraIngr-heading {
+      font-size: 20px;
+    }
+
+    .ingredient-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px; /* Justera efter behov */
 
       input {
-        flex: 0 0 calc(33.33% - 10px);
         margin-left: 0.3rem;
         margin-top: 0.5rem;
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+      }
+      label {
+        font-size: 20px;
+        margin-right: 1rem;
       }
     }
   }
@@ -56,20 +83,40 @@
     border: solid black 2px;
     height: auto;
     padding: $first-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 
-    #quantity {
+    .quantity-price-box {
+      display: flex;
       margin-right: 1rem;
+
+      #quantity {
+        margin-right: 1rem;
+        font-size: 20px;
+        width: 5rem;
+        height: auto;
+        margin-right: 1rem;
+      }
+
+      p {
+        font-size: 30px;
+        margin-right: 0.5rem;
+      }
     }
 
-    .add-btn {
-      margin-left: 1rem;
-      background-color: $green;
-    }
+    .submit-abort-box {
+      .add-btn {
+        margin-left: 1rem;
+        background-color: $green;
+      }
 
-    .abort-btn {
-      background-color: $pink;
-      border: 1px solid black;
-      margin-left: 1rem;
+      .abort-btn {
+        background-color: rgb(243, 126, 126);
+        border: 1px solid black;
+        margin-left: 1rem;
+      }
     }
   }
 }
