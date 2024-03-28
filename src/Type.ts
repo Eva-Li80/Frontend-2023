@@ -1,6 +1,6 @@
 export type Pizza = {
   id: string;
-  category: "pizza" | "sallad" | "vego";
+  category: "pizza" | "vego";
   name: string;
   ingredients: string[];
   price: number;
@@ -125,75 +125,6 @@ export const pizzas: Pizza[] = [
     name: "Hawaiian Veggie",
     ingredients: ["tomatsås", "mozzarella", "ananas", "paprika"],
     price: 95,
-    size: "standard",
-  },
-  {
-    id: "11",
-    category: "sallad",
-    name: "Caesarsallad",
-    ingredients: [
-      "salladsblandning",
-      "kyckling",
-      "krutonger",
-      "parmesan",
-      "Caesardressing",
-    ],
-    price: 80,
-    size: "standard",
-  },
-  {
-    id: "12",
-    category: "sallad",
-    name: "Grekisk Sallad",
-    ingredients: [
-      "salladsblandning",
-      "tomater",
-      "gurka",
-      "oliver",
-      "fetaost",
-      "rödlök",
-    ],
-    price: 80,
-    size: "standard",
-  },
-  {
-    id: "13",
-    category: "sallad",
-    name: "Caprese Sallad",
-    ingredients: ["tomater", "mozzarella", "basilika", "olivolja"],
-    price: 80,
-    size: "standard",
-  },
-  {
-    id: "14",
-    category: "sallad",
-    name: "Pastasallad",
-    ingredients: [
-      "pasta",
-      "körsbärstomater",
-      "rödlök",
-      "oliver",
-      "fetaost",
-      "basilika",
-      "olivolja",
-    ],
-    price: 80,
-    size: "standard",
-  },
-  {
-    id: "15",
-    category: "sallad",
-    name: "Avokado- och Räksallad",
-    ingredients: [
-      "avokado",
-      "räkor",
-      "salladsblandning",
-      "tomater",
-      "gurka",
-      "rödlök",
-      "limedressing",
-    ],
-    price: 80,
     size: "standard",
   },
 ];
