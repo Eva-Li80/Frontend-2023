@@ -26,9 +26,7 @@ const SortMenu = ({ pizzas, setPizzas }: SortMenuProps) => {
       case "vego":
         sortedPizzas = pizzas.filter((pizza) => pizza.category === "vego");
         break;
-      case "sallad":
-        sortedPizzas = pizzas.filter((pizza) => pizza.category === "sallad");
-        break;
+
       default:
         sortedPizzas = pizzas;
         break;
@@ -63,13 +61,6 @@ const SortMenu = ({ pizzas, setPizzas }: SortMenuProps) => {
       >
         <img src={VegoImage} alt="Vego" className="sort-image vego" />
         <h3>VEGO</h3>
-      </div>
-      <div
-        className={selectedCategory === "sallad" ? "selected" : ""}
-        onClick={() => handleSort("sallad")}
-      >
-        <img src={SalladImage} alt="Sallad" className="sort-image sallad" />
-        <h3>SALLAD</h3>
       </div>
     </div>
   );
