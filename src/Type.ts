@@ -25,8 +25,6 @@ export const extraIngredients = [
   "Feferoni",
 ];
 
-export const sizes = ["standard", "barn", "familj"];
-
 export const pizzas: Pizza[] = [
   {
     id: "1",
