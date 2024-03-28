@@ -73,9 +73,9 @@ const PizzaOrder = () => {
               </h3>
             ) : (
               <div className="no-order">
-                <h3 className="price-cartitem text">
+                <h1 className="price-cartitem text">
                   Ingen order : {calculateTotalPrice()} Kr
-                </h3>
+                </h1>
               </div>
             )}
           </div>
