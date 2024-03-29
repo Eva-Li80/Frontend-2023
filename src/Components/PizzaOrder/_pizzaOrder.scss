@@ -11,6 +11,8 @@
     max-width: 800px;
     padding: 50px;
     background-color:$gray;
+    border: 2px solid gray;
+    box-shadow: 4px 4px 6px $green;
     width: 80%;
 
     .order-header-container {
