@@ -16,7 +16,6 @@ const PizzaOrderListItem = ({
       <div className="pizza-content" key={pizza.product.name}>
         <div className="pizza-name">
           <p>{pizza.product.name}</p>
-          <p>{pizza.product.ingredients}</p>
         </div>
         <div className="pizza-remove">
           <button
