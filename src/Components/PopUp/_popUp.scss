@@ -5,7 +5,7 @@
 .popUp-module {
   border: solid black 2px;
   height: auto;
-  width: 43vw;
+  max-width: 50rem;
   background-color: $white;
   padding: 2rem;
   font-family: $primary-font-family;
