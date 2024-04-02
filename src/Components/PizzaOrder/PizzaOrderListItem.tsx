@@ -1,4 +1,4 @@
-import { CartItem } from '../../Type'
+import { CartItem } from "../../Type"
 
 type PizzaOrderListItemProps = {
     cart: CartItem 
