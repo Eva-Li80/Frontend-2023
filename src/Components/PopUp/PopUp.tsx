@@ -1,7 +1,7 @@
 import "./_popUp.scss";
 import { useContext, useState } from "react";
 import { PizzaContext } from "../../context/PizzaContextProvider";
-import { Pizza, extraIngredients } from "../../Type";
+import { Pizza } from "../../Type";
 import Button from "@mui/material/Button";
 import uuid from "react-uuid";
 
@@ -11,10 +11,22 @@ type PupUpProps = {
 };
 
 const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
-  const { state, dispatch } = useContext(PizzaContext);
+  const { dispatch } = useContext(PizzaContext);
   const [size, setSize] = useState(selectedPizza.size);
   const [extraIngr, setExtraIngr] = useState(selectedPizza.ingredients);
   const [quantity, setQuantity] = useState(1);
+
+  const extraIngredients = [
+    "Tomat",
+    "Gurka",
+    "Lök",
+    "Ost",
+    "Fetaost",
+    "Ruccola",
+    "Räkor",
+    "Pommes",
+    "Feferoni",
+  ];
 
   const handleChangeSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSize(e.target.value as "standard" | "barn" | "familj");
@@ -93,7 +105,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
         <h5 id="extraIngr-heading">Extra ingridienser</h5>
         <div className="ingredient-grid">
           {extraIngredients.map((i) => (
-            <div id={i}>
+            <div key={i} id={i}>
               <input
                 id={i}
                 type="checkbox"
