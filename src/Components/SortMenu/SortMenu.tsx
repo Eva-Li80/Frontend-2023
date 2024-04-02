@@ -1,7 +1,6 @@
 import AllaImage from "../../Assets/img/unleashed-agency-EZpGDYWBAYA-unsplash.jpg";
 import StandardImage from "../../Assets/img/vit-ch-Oxb84ENcFfU-unsplash.jpg";
 import VegoImage from "../../Assets/img/likemeat-CbNAuxSZTFo-unsplash.jpg";
-import SalladImage from "../../Assets/img/jenny-theolin-Abodxj2grwY-unsplash.jpg";
 
 import React, { useState } from "react";
 import { Pizza } from "../../Type";
