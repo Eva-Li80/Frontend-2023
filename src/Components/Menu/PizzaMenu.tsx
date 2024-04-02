@@ -21,11 +21,11 @@ const PizzaMenu: React.FC = () => {
     setPizzas(filteredPizzas);
   };
 
-  function handleSelectPizza(pizza: Pizza) {
+  const handleSelectPizza = (pizza: Pizza) => {
     setSelectedPizza(pizza);
     setSearchTerm("");
     setPopUp(true);
-  }
+  };
 
   return (
     <div className="pizza-menu">
