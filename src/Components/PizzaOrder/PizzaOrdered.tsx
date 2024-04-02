@@ -15,7 +15,7 @@ const PizzaOrdered = () => {
 
   const handleClickToggle = () => {
     setOpen(!open);
-    dispatch({ type: "ClearCart" });
+    dispatch({ type: "CLEAR_CART" });
   };
 
   return (
@@ -35,9 +35,7 @@ const PizzaOrdered = () => {
             <Typography variant="body1">
               Din beställning har mottagits.
             </Typography>
-            <Typography>
-              Välkommen åter!
-            </Typography>
+            <Typography>Välkommen åter!</Typography>
           </DialogContent>
           <DialogActions>
             <Button className="action-btn" onClick={handleClickToggle}>

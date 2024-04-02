@@ -127,7 +127,7 @@ const PopUp = ({ selectedPizza, onClose }: PupUpProps) => {
             color="success"
             onClick={() => {
               dispatch({
-                type: "AddCartItem",
+                type: "ADD_CART_ITEM",
                 payload: {
                   id: uuid(),
                   product: {

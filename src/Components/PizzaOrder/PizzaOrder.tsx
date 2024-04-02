@@ -13,7 +13,7 @@ const PizzaOrder = () => {
   const handelUpdateQuantity = (cart: CartItem, updateQuantitiy: string) => {
     if (updateQuantitiy === "+") {
       dispatch({
-        type: "UpdateCartItem",
+        type: "UPDATE_CART_ITEM",
         payload: {
           ...cart,
           quantity: cart.quantity + 1,
@@ -22,7 +22,7 @@ const PizzaOrder = () => {
     } else if (updateQuantitiy === "-") {
       if (cart.quantity >= 1) {
         dispatch({
-          type: "UpdateCartItem",
+          type: "UPDATE_CART_ITEM",
           payload: {
             ...cart,
             quantity: cart.quantity - 1,
@@ -30,7 +30,7 @@ const PizzaOrder = () => {
         });
       } else {
         dispatch({
-          type: "RemoveCartItem",
+          type: "REMOVE_CART_ITEM",
           payload: cart.id,
         });
       }
@@ -39,7 +39,7 @@ const PizzaOrder = () => {
 
   const handleDeleteCartItem = (id: string) => {
     dispatch({
-      type: "RemoveCartItem",
+      type: "REMOVE_CART_ITEM",
       payload: id,
     });
   };
